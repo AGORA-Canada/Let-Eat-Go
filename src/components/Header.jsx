@@ -3,18 +3,17 @@ import RegisterButton from "./RegisterButton";
 const Header = () => {
   return (
     <div>
-      <div className="bg-gray-600 p-24 space-y-5">
-        <p className="text-white font-bold text-2xl">
+      <div className="bg-gray-600 p-44 space-y-5">
+        <h2 className="text-white font-bold text-4xl">
           When restaurants meet online order,
           <br />
           LET EAT GO online order
-          <br />
-        </p>
-        <p className="text-white text-sm">
+        </h2>
+        <p className="text-white text-base">
           Bring comfort into your restaurant with our online order system
         </p>
         <div className="flex justify-center w-full">
-          <RegisterButton label="Register your restaurant" />
+          <RegisterButton />
         </div>
       </div>
     </div>
