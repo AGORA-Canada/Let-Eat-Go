@@ -4,29 +4,32 @@ const RegisterButton = ({ label, link, is_contrasted }) => {
   const [isScrolling, setScrolling] = useState(false);
 
   const handleScroll = (e) => {
-      e.preventDefault();
-      const targetId = e.target.getAttribute('href').substring(1);
-      const targetElement = document.getElementById(targetId);
-      if (targetElement) {
-          setScrolling(true);
-          targetElement.scrollIntoView({ behavior: 'smooth' });
-          setTimeout(() => setScrolling(false), 1000); 
-      }
+    e.preventDefault();
+    const targetId = e.target.getAttribute("href").substring(1);
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      setScrolling(true);
+      targetElement.scrollIntoView({ behavior: "smooth" });
+      setTimeout(() => setScrolling(false), 1000);
+    }
   };
 
   useEffect(() => {
-      const handleScrollEnd = () => setScrolling(false);
-      window.addEventListener('scroll', handleScrollEnd);
-      return () => window.removeEventListener('scroll', handleScrollEnd);
+    const handleScrollEnd = () => setScrolling(false);
+    window.addEventListener("scroll", handleScrollEnd);
+    return () => window.removeEventListener("scroll", handleScrollEnd);
   }, []);
 
-
   var buttonLabel;
+  var buttonMobileLabel;
   var buttonLink;
+
   if (label) {
     buttonLabel = label;
+    buttonMobileLabel = label;
   } else {
-    buttonLabel = "Resister your restaurant";
+    buttonLabel = "Register your restaurant";
+    buttonMobileLabel = "Register";
   }
 
   if (link) {
@@ -38,14 +41,13 @@ const RegisterButton = ({ label, link, is_contrasted }) => {
   return (
     <a
       href={buttonLink}
-      onClick={(e)=> handleScroll(e)}
+      onClick={(e) => handleScroll(e)}
       className={`${
-        is_contrasted
-          ? "bg-white text-orange-500"
-          : "bg-orange-500 text-white"
-      } block w-56 py-2 rounded font-bold`}
+        is_contrasted ? "bg-white text-orange-500" : "bg-orange-500 text-white"
+      } block px-4 sm:px-8 py-2 rounded font-bold text-sm sm:text-base`}
     >
-      {buttonLabel}
+      <span className="hidden sm:block">{buttonLabel}</span>
+      <span className="block sm:hidden ">{buttonMobileLabel}</span>
     </a>
   );
 };
