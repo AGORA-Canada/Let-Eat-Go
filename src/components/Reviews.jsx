@@ -45,10 +45,10 @@ const Reviews = () => {
 
   return (
     <div className="bg-[#ECECEC] h-max">
-      <div className="w-4/5 m-auto py-20 text-center">
+      <div className="w-full m-auto py-20 text-center">
         <div className="flex flex-col items-center gap-4">
-          <h2 className="text-4xl font-bold">Customer reviews</h2>
-          <p className="w-3/5">
+          <h2 className="text-3xl sm:text-4xl font-bold">Customer reviews</h2>
+          <p className="px-10 md:px-16 lg:w-3/5 text-sm sm:text-base">
             We provide website and online ordering program services for your
             store, along with photography services to be included within them at
             low commission.
@@ -59,26 +59,32 @@ const Reviews = () => {
             <img src={StarIcon} alt="Star" key={index} />
           ))}
         </div>
-        <div className="mt-10 h-80 relative">
+        <div className="h-96 sm:h-80 mt-10 relative">
           <button
             onClick={handlePrev}
-            className="absolute left-0 top-10 transform -translate-y-1/2 text-gray-800 font-bold py-2 px-4"
+            className="absolute left-3 sm:left-6 md:left-14 lg:left-28 top-24 sm:top-16 lg:top-10 transform -translate-y-1/2 text-gray-800 font-bold py-2 px-4"
           >
-            <img src={LeftArrow} alt="Previous" />
+            <img
+              src={LeftArrow}
+              alt="Previous"
+              className="w-[11px] sm:w-full"
+            />
           </button>
-          <div className="flex flex-col items-center justify-between gap-12">
-            <div className="w-4/6">{clients[currentIndex].review}</div>
+          <div className="flex flex-col items-center justify-between gap-6 md:gap-12">
+            <div className="w-4/6 text-sm sm:text-base">
+              {clients[currentIndex].review}
+            </div>
             <img
               src={clients[currentIndex].logo}
               alt={clients.name}
-              className="object-cover"
+              className="object-cover w-32 sm:w-52"
             />
           </div>
           <button
             onClick={handleNext}
-            className="absolute right-0 top-10 transform -translate-y-1/2 text-gray-800 py-2 px-4 text-4xl"
+            className="absolute right-3 sm:right-6 md:right-14 lg:right-28 top-24 sm:top-16 lg:top-10 transform -translate-y-1/2 text-gray-800 py-2 px-4 text-4xl"
           >
-            <img src={RightArrow} alt="Next" />
+            <img src={RightArrow} alt="Next" className="w-[11px] sm:w-full" />
           </button>
         </div>
       </div>

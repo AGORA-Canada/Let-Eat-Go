@@ -29,15 +29,18 @@ const Contact = () => {
 
   return (
     <div id="contact" className="h-max bg-white">
-      <div className="w-1/2 m-auto py-32 text-center">
-        <h2 className="text-4xl font-bold">
+      <div className="px-10 sm:w-3/5 lg:w-1/2 m-auto py-32 text-center">
+        <h2 className="text-3xl sm:text-4xl font-bold">
           Grow your business with LET EAT GO
         </h2>
-        <p className="mt-4">
+        <p className="mt-4 text-sm sm:text-base">
           Feel free to contact us any time. We will get back to you as soon as
           we can.
         </p>
-        <form onSubmit={onSubmit} className="w-full mt-10 flex flex-col gap-4">
+        <form
+          onSubmit={onSubmit}
+          className="w-full mt-10 flex flex-col gap-4 text-sm sm:text-base"
+        >
           <div className="flex flex-col items-start gap-2">
             <label>Company Name</label>
             <input
@@ -78,7 +81,7 @@ const Contact = () => {
             Submit
           </button>
 
-         <p className="text-sm">{result}</p>
+          <p className="text-sm">{result}</p>
         </form>
       </div>
     </div>
