@@ -1,11 +1,18 @@
 import React, { useState, useEffect } from "react";
+import Link from "react-scroll";
 
 const RegisterButton = ({ label, link, is_contrasted }) => {
   const [isScrolling, setScrolling] = useState(false);
 
   const handleScroll = (e) => {
     e.preventDefault();
-    const targetId = e.target.getAttribute("href").substring(1);
+    const target = e.target.closest("a");
+    if (!target) return;
+
+    const href = target.getAttribute("href");
+    if (!href) return;
+
+    const targetId = href.substring(1);
     const targetElement = document.getElementById(targetId);
     if (targetElement) {
       setScrolling(true);
@@ -13,7 +20,6 @@ const RegisterButton = ({ label, link, is_contrasted }) => {
       setTimeout(() => setScrolling(false), 1000);
     }
   };
-
   useEffect(() => {
     const handleScrollEnd = () => setScrolling(false);
     window.addEventListener("scroll", handleScrollEnd);

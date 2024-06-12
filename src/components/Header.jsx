@@ -1,5 +1,7 @@
 import React from "react";
 import RegisterButton from "./RegisterButton";
+import Link from "react-scroll";
+
 const Header = () => {
   return (
     <div className="m-auto">
